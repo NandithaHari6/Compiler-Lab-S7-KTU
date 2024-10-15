@@ -6,8 +6,7 @@
 void yyerror(char *s);
 int yylex(void);
 
-// Variable to store the final result
-int result;
+
 %}
 
 /* Declare tokens */
@@ -15,6 +14,9 @@ int result;
 
 %%
 /* Grammar rules for arithmetic expressions */
+start:  expression             { printf(" Result is : %d\n", $1); }
+        ;
+
 expression:
       expression '+' term         { $$ = $1 + $3; }
     | expression '-' term         { $$ = $1 - $3; }
@@ -38,7 +40,7 @@ factor:
 int main() {
     printf("Enter an arithmetic expression: ");
     yyparse();   // Parse the input
-    printf("Result: %d\n", result);  // Print the final result
+    
     return 0;
 }
 

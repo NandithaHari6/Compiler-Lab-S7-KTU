@@ -11,7 +11,7 @@
 "/"       { return '/'; }  
 "("       { return '('; }  
 ")"       { return ')'; }  
-[\t ]+    { /* Ignore spaces and tabs */ }
+[ \t]+    { /* Ignore spaces and tabs */ }
 .         { printf("Unexpected character: %s\n", yytext); }
 
 %%
