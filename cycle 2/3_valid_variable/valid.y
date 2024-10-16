@@ -1,6 +1,7 @@
 %{
     #include<stdio.h>
     int valid=1;
+    int yyerror();
 %}
 
 %token digit letter

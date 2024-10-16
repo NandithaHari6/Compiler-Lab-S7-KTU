@@ -52,7 +52,7 @@ void main()
         for(i=0;i<notransition;i++)
         {
 
-
+ 
                 scanf("%d %c%d",&r,&c,&s);
                 insert_trantbl(r,c,s);
 
@@ -105,7 +105,7 @@ void main()
                          }
                         printf("\n");
                         print_e_closure(i);
-                        printf("%c\t",alphabet[j]   );
+                        printf("%c\t",alphabet[j]    );
                         printf("{");
                         for(n=1;n<=nostate;n++)
                         {

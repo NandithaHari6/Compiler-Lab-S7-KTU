@@ -37,7 +37,7 @@ void main()
     printf("NOTE:- [States number must be greater than zero]\n");
     printf("\nEnter transition?\n");
     for(i=0;i<notransition;i++)
-    {
+    { 
         scanf("%d %c%d",&r,&c,&s);
         insert_trantbl(r,c,s);
     }

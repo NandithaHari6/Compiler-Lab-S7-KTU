@@ -1,15 +1,11 @@
-/*lex program to count number of words*/
-
 %{ 
 #include<stdio.h> 
 #include<string.h> 
-
 int i = 0;
 int flag=0; 
 char name[50]="";
 %} 
 
-/* Rules Section*/
 %% 
 [a-zA-Z]* {
 	for(i=0;i<yyleng;i++){
@@ -28,16 +24,12 @@ printf("%s does not contain 4 letters of name as  substring\n",name);
 strcpy(name,"");
 }
 }
-
-
 %% 
 
 
 int main() 
-{ printf("Enter the sentence");
+{ printf("Enter the string");
 	// The function that starts the analysis 
 	yylex(); 
-	
-
 	return 0; 
 } 
