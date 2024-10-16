@@ -2,6 +2,7 @@
     #include<stdio.h>
     int valid=1;
     int yyerror();
+    int yylex();
 %}
 
 %token digit letter
