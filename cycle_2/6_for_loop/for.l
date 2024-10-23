@@ -9,6 +9,8 @@ for					return FOR;
 "="|"<"|">"|">="|"<="|"=="|"++"|"--"	return OPERATOR;
 \;					return SEMICOLON;
 ,					return COMMA;
+[\{\}]                  return CURLYBRACE;
+                 
 \n					return NEWLINE;
 .					;
 %%
@@ -42,4 +44,4 @@ gcc lex.yy.c y.tab.c -o for -ll
 ./for
 
 
-                /
+                */
