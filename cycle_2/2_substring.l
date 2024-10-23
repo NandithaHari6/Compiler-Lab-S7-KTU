@@ -19,16 +19,18 @@ char name[50]="";
  if(flag==1){printf("%s contains 4 letters of name as substring\n",name);
  flag=0;
  strcpy(name,"");
+ printf("Enter the string    ");
 }else{
 printf("%s does not contain 4 letters of name as  substring\n",name);
 strcpy(name,"");
+printf("Enter the string    ");
 }
 }
 %% 
 
 
 int main() 
-{ printf("Enter the string");
+{ printf("Enter the string    ");
 	// The function that starts the analysis 
 	yylex(); 
 	return 0; 

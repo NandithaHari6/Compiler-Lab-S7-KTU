@@ -17,7 +17,7 @@ int yyerror()
 	printf("Invalid.\n");
 	return 1;
 }
-
+ 
 void main()
 {
 	printf("Enter string:\n");
