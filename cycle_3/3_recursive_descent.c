@@ -58,13 +58,17 @@ if(ip_sym[ip_ptr]=='+')
 void t()
 {
  int i,n=0,l;
- for(i=0;i<=strlen(op);i++)
-  if(op[i]!='e')
-   tmp[n++]=op[i];
- strcpy(op,tmp);
- l=strlen(op);
+ for(i=0;i<=strlen(op);i++){
+   if(op[i]!='e'){
+       tmp[n++]=op[i];
+   }
+  
+ }
+  
+strcpy(op,tmp);
+l=strlen(op);//op=TE'
 for(n=0;n < l && op[n]!='T';n++);
-
+//n=0, i=1
  i=n+1;
  do
  {
@@ -192,4 +196,5 @@ void main()
     strcpy(op,tmp);
     printf("\nE=%-25s",op);
  }
+ printf("\n\n");
 }

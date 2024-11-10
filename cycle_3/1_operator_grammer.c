@@ -1,16 +1,16 @@
 #include<stdio.h>
 #include <string.h>
-
+  
 
 void main() {
-  char stack[20], ip[20], opt[10][10][1], ter[10];
+  char stack[20], ip[20], opt[10][10], ter[10];
   int i, j, k, n, top = 0, col, row;
 
   for (i = 0; i < 10; i++) {
     stack[i] = NULL;
     ip[i] = NULL;
     for (j = 0; j < 10; j++) {
-      opt[i][j][1] = NULL;
+      opt[i][j] = NULL;
     }
   }
   printf("Enter the no.of terminals :\n");
@@ -32,7 +32,7 @@ void main() {
   for (i = 0; i < n; i++) {
     printf("\n%c", ter[i]);
     for (j = 0; j < n; j++) {
-      printf("\t%c", opt[i][j][0]);
+      printf("\t%c", opt[i][j]);
     }
   }
   stack[top] = '$';
@@ -44,20 +44,20 @@ void main() {
   while (i <= strlen(ip)) {
     for (k = 0; k < n; k++) {
       if (stack[top] == ter[k])
-        col = k;
-      if (ip[i] == ter[k])
         row = k;
+      if (ip[i] == ter[k])
+        col = k;
     }
     if ((stack[top] == '$') && (ip[i] == '$')) {
       printf("String is accepted\n");
       break;
-    } else if ((opt[col][row][0] == '<') || (opt[col][row][0] == '=')) {
-      stack[++top] = opt[col][row][0];
+    } else if ((opt[row][col] == '<') || (opt[row][col] == '=')) {
+      stack[++top] = opt[row][col];
       stack[++top] = ip[i];
       printf("Shift %c", ip[i]);
       i++;
     } else {
-      if (opt[col][row][0] == '>') {
+      if (opt[row][col] == '>') {
         while (stack[top] != '<') {
           --top;
         }

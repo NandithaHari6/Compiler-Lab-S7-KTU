@@ -33,7 +33,7 @@ void first(char nonterm)
                 flag = 1;
                 if (isTerminal(prods[i][curr_prod_index]))
                 {
-                    curr_firsts[index] = prods[i][2];
+                    curr_firsts[index] = prods[i][curr_prod_index];
                     index++;
                     break;
                 }
@@ -103,7 +103,7 @@ void follow(char nonterm)
                         int temp_flag = 0;
                         for (int z = 0; z < index; z++)
                             if (firsts[prods[j][k + 1] - 65][in] == curr_follows[z])
-                            {
+                            {  
                                 temp_flag = 1;
                                 in++;
                                 break;
