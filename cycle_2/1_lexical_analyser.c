@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
+#include <ctype.h>
 char line[100];
 
 int is_operator(char c)
@@ -110,7 +110,9 @@ void main()
                 {
                     if (is_keyword(token))
                         printf("%s - Keyword\n", token);
-                    else  
+                    else if(isdigit(token[0]))
+                        printf("%s - Number\n",token);
+                    else
                         printf("%s - Identifier\n", token);
 
                     strcpy(token, "");
