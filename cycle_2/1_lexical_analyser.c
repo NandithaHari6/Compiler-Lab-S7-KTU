@@ -60,41 +60,24 @@ void main()
     while (fgets(line, sizeof(line), f))
     {
         // Single line commment '//', skip processing it
-        int flag1 = 0;
-        for (int i = 0; i < strlen(line); i++)
-        {
-            if (line[i] == '/' && line[i + 1] == '/')
-            {
-                flag1 = 1;
-                break;
-            }       
+               
+        if(strstr(line,"//")){
+            continue;
         }
-        if (flag1)
-            continue;        
-
         // Multi-line comment '/**/'
-        int flag2 = 0;
-        for (int i = 0; i < strlen(line); i++)
-        {
-            if (line[i] == '/' && line[i + 1] == '*')
-            {
-                // Skip all lines until '*/' has occured
-                while (fgets(line, sizeof(line), f))
-                {
-                    for (int j = 0; j < strlen(line); j++)
-                    {
-                        if (line[j] == '*' && line[j + 1] == '/')
-                            flag2 = 1;
-                    }
-
-                    if (flag2)
-                        break;
+       
+        int multi=0;
+        if(strstr(line,"/*")){
+            while(fgets(line,sizeof(line),f)){
+                if(strstr(line,"*/")){
+                    multi=1;
+                    break;
                 }
             }
+            if(multi){
+                continue;
+            }
         }
-        if (flag2)
-            continue;
-
         printf("\n%s\n", line);
 
         char token[100];
